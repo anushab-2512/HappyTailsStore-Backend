@@ -5,4 +5,4 @@ logs.txt
 backend-logs.txt
 backend-out.txt
 .idea/
-src/main/resources/application.properties
+
