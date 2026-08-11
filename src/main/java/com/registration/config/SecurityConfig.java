@@ -27,7 +27,7 @@ public class SecurityConfig {
     private final JwtAuthenticationEntryPoint entryPoint;
 
     public SecurityConfig(JwtAuthenticationFilter jwtAuthFilter,
-                          JwtAuthenticationEntryPoint entryPoint) {
+            JwtAuthenticationEntryPoint entryPoint) {
         this.jwtAuthFilter = jwtAuthFilter;
         this.entryPoint = entryPoint;
     }
@@ -40,24 +40,23 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint))
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/register").permitAll()
-                .requestMatchers("/api/auth/login").permitAll()
-                .requestMatchers("/api/auth/forgot-password").permitAll()
-                .requestMatchers("/api/auth/verify-otp").permitAll()
-                .requestMatchers("/api/auth/reset-password").permitAll()
-                .requestMatchers("/api/auth/logout").authenticated()
-                .requestMatchers("/api/auth/change-password").authenticated()
-                .requestMatchers("/api/health").permitAll()
-                .requestMatchers("/api/products/**").authenticated()
-                .requestMatchers("/api/categories/**").authenticated()
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/register").permitAll()
+                        .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers("/api/auth/forgot-password").permitAll()
+                        .requestMatchers("/api/auth/verify-otp").permitAll()
+                        .requestMatchers("/api/auth/reset-password").permitAll()
+                        .requestMatchers("/api/auth/logout").authenticated()
+                        .requestMatchers("/api/auth/change-password").authenticated()
+                        .requestMatchers("/api/health").permitAll()
+                        .requestMatchers("/api/products/**").permitAll()
+                        .requestMatchers("/api/categories/**").permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -66,12 +65,11 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
-            "https://happy-tails-store-frontend-j6pg.vercel.app",
-            "http://localhost:5173",
-            "http://localhost:5174",
-            "http://localhost:5175",
-            "http://localhost:3000"
-        ));
+                "https://happy-tails-store-frontend-j6pg.vercel.app",
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:5175",
+                "http://localhost:3000"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
