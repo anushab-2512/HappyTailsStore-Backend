@@ -65,6 +65,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
+                "https://happy-tails-store-frontend-ten.vercel.app",
                 "https://happy-tails-store-frontend-j6pg.vercel.app",
                 "http://localhost:5173",
                 "http://localhost:5174",
