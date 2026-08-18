@@ -2,6 +2,12 @@
 
 HappyTailsStore is a full-stack e-commerce web application for pet products, developed using React.js, Spring Boot, Java, and MySQL. The application provides a seamless shopping experience with secure authentication, product browsing, shopping cart management, online payments, and order management.
 
+## 🚀 Live Application
+
+🌐 **Frontend:** [Visit HappyTailsStore](https://happy-tails-store-frontend-ten.vercel.app/)
+
+⚙️ **Backend:** [View Backend API](https://happytailsstore-backend.onrender.com)
+
 > **Project Status:** 🚧 Currently Under Development  
 > **Team Size:** 4 Members (Collaborative Academic Project)
 > Team members name:
