@@ -9,6 +9,7 @@ HappyTailsStore is a full-stack e-commerce web application for pet products, dev
 ⚙️ **Backend:** [View Backend API](https://happytailsstore-backend.onrender.com)
 
 > **Project Status:** 🚧 Completed
+> 
 > **Team Size:** 4 Members (Collaborative Academic Project)
 > Team members name:
 - Anusha B
